@@ -1,11 +1,11 @@
 <template>
 <div class="container">
     <div class="view">
-        <img :src="img_path">
-        <h1>{{coin_type}}</h1>
+        <img :src="img_path" alt="Coin">
+        <h1>{{coin_data.coin}}</h1>
     </div>
     <div class="price">
-        <h1>Today's Price:  </h1>
+        <h1>Today's Price: {{coin_data.rate}} $ </h1>
     </div>
 </div>
     
@@ -15,11 +15,11 @@
 export default {
     name:'CoinDisplay',
     props:{
-        coin_type:String
+        coin_data:Object
     },
     computed:{
         img_path(){
-            return "./"+this.coin_type+".png"
+            return "./"+this.coin_data.coin+".png"
         }
     }
 }

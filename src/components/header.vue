@@ -7,7 +7,7 @@
      
 </div>
 <div id="coins">
-    <div v-for="coin in coinlist" :key="coin" id="coin" v-on:click="emit_coin(coin)">{{coin}}</div>
+    <div v-for="coin in coinlist" :key="coin.name" id="coin" v-on:click="emit_coin(coin.id)">{{coin.name}}</div>
 </div>
 </div>
 </template>
@@ -20,7 +20,14 @@ export default {
     },
     data(){
         return {
-            coinlist: ["BitCoin", "Etherium", "Litecoin"]
+            // coinlist: ["BTC", "ETH", "LTC","USDT"]
+            coinlist:[
+                {name:'Bitcoin',id:'BTC'},
+                {name:'Ethereum',id:'ETH'},
+                {name:'Litecoin', id:'LTC'},
+                {name:'Tether',id:'USDT'},
+                {name:'Dogecoin',id:'DOGE'}
+            ]
         }
     },
     methods:{
